@@ -9,7 +9,7 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
 
     function makeGreen() {
       const p = document.querySelector('p');
@@ -18,28 +18,68 @@
     }
 
     // Regular
+    console.log("Hello");
 
     // Interpolated
+    console.log("Hello I am a %s string", "peanut");
+    console.log(`Hello I am a ${"apple"} string`);
 
     // Styled
+    //console.log("%c I am some great txt", "font-size:50px; background: red ; text-shadow:10px 10px 0 blue")
 
     // warning!
+    console.warn("BE CAREFUL");
 
     // Error :|
+    console.error("DAMN!");
 
     // Info
+    console.info("Crocodile eat 3-4 people per year");
 
     // Testing
+    //Test some logic and if the logic is wrong then it will display the second argument, ONLY IF WRONG/FALSE
+    console.assert(1 == 2, "That is wrong");
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    const p = document.querySelector('p');
+
+    console.log(p);
+    //Shows you all the methods etc
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog =>{
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`But ${dog.name} is ${dog.age * 7} dog years old.`);
+        // console.groupEnd(`${dog.name}`);
+        console.groupEnd();
+    });
 
     // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Kory');
+    console.count('Kory');
+    console.count('Kory');
+    console.count('Kory');
 
     // timing
+      console.time('fetching data');
+      fetch('https://api.github.com/users/wesbos')
+      .then(data=>data.json())
+      .then(data=>{
+          console.timeEnd('fetching data');
+          console.log(data);
+    });
+      //table
+      console.table(dogs);
 
   </script>
 </body>
